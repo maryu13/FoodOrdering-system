@@ -1,0 +1,22 @@
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE Blog_Crud
+	@Action VARCHAR(10)
+
+AS
+
+BEGIN
+	SET NOCOUNT ON;
+	--SELECT
+	IF @ACTION='SELECT'
+	BEGIN
+		SELECT b.*,u.Username
+		FROM Blogs b
+		INNER JOIN dbo.Users u ON b.UserID=u.UserId
+	END
+
+	
+END
+
